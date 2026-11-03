@@ -59,12 +59,11 @@ export const birthdayConfig = {
   title: 'Heer Betu!',
   message:
     'Three years of smiles, giggles, cuddles and endless magic. Keep shining, our little princess!',
-  subtitle: 'Our little animal friends have come to celebrate with you!',
-  surprise:
-    'You are loved to the moon and back, little star. May every day be as sweet as this one.',
+  subtitle:
+    'Some of your favourite animal friends are here to celebrate with you!',
   badge: '3 Years of Magic',
   celebrationLabel: "Let's Celebrate!",
-  celebrationHint: 'Tap the little rocket and watch the magic!',
+  celebrationPauseLabel: 'Pause Music',
   footer: 'Made with lots of love for Heer Betu',
 
   /* ── Gallery wording ──────────────────────────────────────── */

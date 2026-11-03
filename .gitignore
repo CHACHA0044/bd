@@ -43,6 +43,7 @@ test-results
 .tmp-photos
 
 # Local-only source material and preview logs
+/audio/
 /photos/
 /react bits code/
 preview.log

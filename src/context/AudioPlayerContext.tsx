@@ -192,9 +192,10 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
 
   const play = useCallback(async (track: MusicTrackConfig) => {
     const status = availabilityRef.current[track.id];
-    if (status !== 'ready') return false;
+    if (status === 'missing') return false;
 
     const audio = ensureAudio();
+    audio.loop = track.kind === 'birthday';
     setError(null);
     setBlocked(false);
 
@@ -250,6 +251,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
     const audio = audioRef.current;
     if (audio) {
       audio.pause();
+      audio.loop = false;
       audio.removeAttribute('src');
       try {
         audio.load();
