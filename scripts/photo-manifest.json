@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-11-03T16:53:44.816Z",
+  "manifest": [
+    {
+      "order": 1,
+      "source": "WhatsApp Image 2026-11-03 at 9.01.36 PM.jpeg",
+      "placeholder": false,
+      "image": "/photos/photo-1.webp",
+      "imageFallback": "/photos/photo-1.jpg",
+      "thumbnail": "/photos/thumbs/photo-1.webp",
+      "thumbnailFallback": "/photos/thumbs/photo-1.jpg"
+    },
+    {
+      "order": 2,
+      "source": "WhatsApp Image 2026-11-03 at 9.06.22 PM.jpeg",
+      "placeholder": false,
+      "image": "/photos/photo-2.webp",
+      "imageFallback": "/photos/photo-2.jpg",
+      "thumbnail": "/photos/thumbs/photo-2.webp",
+      "thumbnailFallback": "/photos/thumbs/photo-2.jpg"
+    },
+    {
+      "order": 3,
+      "source": "WhatsApp Image 2026-11-03 at 10.11.56 PM.jpeg",
+      "placeholder": false,
+      "image": "/photos/photo-3.webp",
+      "imageFallback": "/photos/photo-3.jpg",
+      "thumbnail": "/photos/thumbs/photo-3.webp",
+      "thumbnailFallback": "/photos/thumbs/photo-3.jpg"
+    },
+    {
+      "order": 4,
+      "source": "WhatsApp Image 2026-11-03 at 10.12.22 PM.jpeg",
+      "placeholder": false,
+      "image": "/photos/photo-4.webp",
+      "imageFallback": "/photos/photo-4.jpg",
+      "thumbnail": "/photos/thumbs/photo-4.webp",
+      "thumbnailFallback": "/photos/thumbs/photo-4.jpg"
+    },
+    {
+      "order": 5,
+      "source": "WhatsApp Image 2026-11-03 at 10.12.34 PM.jpeg",
+      "placeholder": false,
+      "image": "/photos/photo-5.webp",
+      "imageFallback": "/photos/photo-5.jpg",
+      "thumbnail": "/photos/thumbs/photo-5.webp",
+      "thumbnailFallback": "/photos/thumbs/photo-5.jpg"
+    },
+    {
+      "order": 6,
+      "source": "WhatsApp Image 2026-11-03 at 10.14.44 PM.jpeg",
+      "placeholder": false,
+      "image": "/photos/photo-6.webp",
+      "imageFallback": "/photos/photo-6.jpg",
+      "thumbnail": "/photos/thumbs/photo-6.webp",
+      "thumbnailFallback": "/photos/thumbs/photo-6.jpg"
+    }
+  ]
+}

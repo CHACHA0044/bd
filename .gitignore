@@ -1,0 +1,49 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.*
+
+# Production build
+dist
+dist-ssr
+*.local
+
+# Vercel
+.vercel
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# Editor / OS noise
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Test / tooling caches
+coverage
+.playwright
+test-results
+
+# Temporary image-processing output (derivatives in public/photos are committed)
+.tmp-photos
+
+# Local-only source material and preview logs
+/photos/
+/react bits code/
+preview.log
+preview.error.log
