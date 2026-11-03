@@ -56,6 +56,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
   const activeTrackRef = useRef<MusicTrackConfig | null>(null);
   const availabilityRef = useRef<Record<string, TrackAvailability>>({});
   const volumeRef = useRef(0.8);
+  const pendingStartTimeRef = useRef<number | null>(null);
 
   const [availability, setAvailability] = useState<Record<string, TrackAvailability>>(() => {
     const initial: Record<string, TrackAvailability> = {};
@@ -88,6 +89,19 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
     const syncDuration = () =>
       setDuration(Number.isFinite(audio.duration) && audio.duration > 0 ? audio.duration : 0);
 
+    const applySeek = () => {
+      if (pendingStartTimeRef.current !== null && pendingStartTimeRef.current > 0) {
+        const time = pendingStartTimeRef.current;
+        try {
+          audio.currentTime = time;
+          setCurrentTime(time);
+          pendingStartTimeRef.current = null;
+        } catch {
+          // May retry on next ready event
+        }
+      }
+    };
+
     const handlers = {
       play: () => {
         setIsPlaying(true);
@@ -105,14 +119,21 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
       },
       timeupdate: syncTime,
       durationchange: syncDuration,
-      loadedmetadata: syncDuration,
+      loadedmetadata: () => {
+        syncDuration();
+        applySeek();
+      },
       waiting: () => setIsLoading(true),
       playing: () => {
         setIsPlaying(true);
         setIsLoading(false);
         setError(null);
+        applySeek();
       },
-      canplay: () => setIsLoading(false),
+      canplay: () => {
+        setIsLoading(false);
+        applySeek();
+      },
       error: () => {
         setIsLoading(false);
         setIsPlaying(false);
@@ -199,12 +220,15 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
     setError(null);
     setBlocked(false);
 
+    const targetStartTime = track.startTime ?? 0;
+
     if (activeTrackRef.current?.id !== track.id) {
       activeTrackRef.current = track;
       setActiveTrackId(track.id);
-      setCurrentTime(0);
+      setCurrentTime(targetStartTime);
       setDuration(0);
       setIsLoading(true);
+      pendingStartTimeRef.current = targetStartTime > 0 ? targetStartTime : null;
       audio.src = track.src;
       try {
         audio.load();
@@ -214,11 +238,29 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
     }
 
     try {
+      if (pendingStartTimeRef.current !== null && pendingStartTimeRef.current > 0) {
+        try {
+          audio.currentTime = pendingStartTimeRef.current;
+        } catch {
+          // Handled by event listener if audio isn't ready
+        }
+      }
       await audio.play();
+      if (pendingStartTimeRef.current !== null && pendingStartTimeRef.current > 0) {
+        try {
+          audio.currentTime = pendingStartTimeRef.current;
+          pendingStartTimeRef.current = null;
+        } catch {
+          // Audio might be transitioning, seek will apply on next event
+        }
+      }
       return true;
     } catch (caught) {
       setIsLoading(false);
       setIsPlaying(false);
+      if (caught instanceof DOMException && caught.name === 'AbortError') {
+        return false;
+      }
       if (caught instanceof DOMException && caught.name === 'NotAllowedError') {
         setBlocked(true);
       } else {

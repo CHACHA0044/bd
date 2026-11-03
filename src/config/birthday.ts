@@ -29,6 +29,8 @@ export interface MusicTrackConfig {
   /** Path inside the public folder. */
   src: string;
   kind: 'birthday' | 'memory';
+  /** Start time in seconds where the song fits the photo best */
+  startTime?: number;
 }
 
 export interface MemoryConfig {
@@ -95,9 +97,10 @@ export const birthdayConfig = {
       description: 'That smile that makes every day brighter.',
       track: {
         id: 'photo-1',
-        title: 'Little Sunshine Song',
+        title: 'Dil Tu Jaan Tu',
         src: '/audio/photo-1.mp3',
         kind: 'memory',
+        startTime: 28,
       },
     },
     {
@@ -111,9 +114,10 @@ export const birthdayConfig = {
       description: 'Giggles, cuddles and a little bit of mischief.',
       track: {
         id: 'photo-2',
-        title: 'Sweet Smiles Song',
+        title: 'Yeh Kaali Kaali Aankhen',
         src: '/audio/photo-2.mp3',
         kind: 'memory',
+        startTime: 59,
       },
     },
     {
@@ -127,9 +131,10 @@ export const birthdayConfig = {
       description: 'A little snapshot of a very big smile.',
       track: {
         id: 'photo-3',
-        title: 'Happy Moments Song',
+        title: 'Chunnari Chunnari',
         src: '/audio/photo-3.mp3',
         kind: 'memory',
+        startTime: 45,
       },
     },
     {
@@ -143,9 +148,10 @@ export const birthdayConfig = {
       description: 'Shining in every single frame.',
       track: {
         id: 'photo-4',
-        title: 'Our Little Star Song',
+        title: 'Hai Jawani Toh Ishq Hona Hai',
         src: '/audio/photo-4.mp3',
         kind: 'memory',
+        startTime: 24,
       },
     },
     {
@@ -159,9 +165,10 @@ export const birthdayConfig = {
       description: 'The world is one big playground.',
       track: {
         id: 'photo-5',
-        title: 'Tiny Adventures Song',
+        title: 'Maskara (Main Vaapas Aaunga)',
         src: '/audio/photo-5.mp3',
         kind: 'memory',
+        startTime: 31,
       },
     },
     {
@@ -175,9 +182,10 @@ export const birthdayConfig = {
       description: 'Moments we will keep in our hearts forever.',
       track: {
         id: 'photo-6',
-        title: 'Precious Memories Song',
+        title: 'Sajni (O Sajni Re)',
         src: '/audio/photo-6.mp3',
         kind: 'memory',
+        startTime: 38,
       },
     },
     {
@@ -191,9 +199,10 @@ export const birthdayConfig = {
       description: 'Filling every moment with laughter and wonder.',
       track: {
         id: 'photo-7',
-        title: 'Pure Joy Song',
+        title: 'Boyfriend (Karan Aujla)',
         src: '/audio/photo-7.mp3',
         kind: 'memory',
+        startTime: 22,
       },
     },
   ] satisfies MemoryConfig[],

@@ -1,9 +1,10 @@
-import { useRef, useState } from 'react';
-import { FaArrowLeft, FaArrowsLeftRight, FaImages } from 'react-icons/fa6';
+import { useEffect, useRef, useState } from 'react';
+import { FaArrowsLeftRight, FaImages, FaPause, FaPlay } from 'react-icons/fa6';
 import GalleryFallback from '../components/gallery/GalleryFallback';
-import MemoryMusicCard from '../components/music/MemoryMusicCard';
 import CircularGallery from '../components/reactbits/CircularGallery';
+import Equalizer from '../components/ui/Equalizer';
 import { birthdayConfig } from '../config/birthday';
+import { useAudioActions, useAudioState } from '../context/audioPlayer';
 import { useWebGLSupport } from '../hooks/useWebGLSupport';
 
 interface GalleryApi {
@@ -25,6 +26,8 @@ export default function GalleryPage() {
   const webgl = useWebGLSupport();
   const galleryRef = useRef<GalleryApi | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const { play, toggle, stop } = useAudioActions();
+  const { activeTrackId, isPlaying } = useAudioState();
 
   const activeMemory = memories[activeIndex] ?? memories[0];
 
@@ -33,14 +36,30 @@ export default function GalleryPage() {
     galleryRef.current?.focus(index);
   };
 
+  useEffect(() => {
+    void play(activeMemory.track);
+  }, [activeMemory, play]);
+
+  useEffect(() => {
+    const stopOnHide = () => {
+      if (document.visibilityState === 'hidden') stop();
+    };
+
+    window.addEventListener('pagehide', stop);
+    document.addEventListener('visibilitychange', stopOnHide);
+
+    return () => {
+      window.removeEventListener('pagehide', stop);
+      document.removeEventListener('visibilitychange', stopOnHide);
+      stop();
+    };
+  }, [stop]);
+
+  const trackPlaying = activeTrackId === activeMemory.track.id && isPlaying;
+
   return (
     <div className="gallery-page">
       <header className="gallery-hero">
-        <a href="#/" className="gallery-hero__back">
-          <FaArrowLeft aria-hidden="true" />
-          Back home
-        </a>
-
         <span className="eyebrow">
           <FaImages aria-hidden="true" />
           Our memories
@@ -112,8 +131,6 @@ export default function GalleryPage() {
           </div>
 
           <div className="gallery-bottom">
-            <MemoryMusicCard memory={activeMemory} />
-
             <div className="gallery-selected">
               <span className="gallery-selected__eyebrow">
                 Memory {activeIndex + 1} of {memories.length}
@@ -122,6 +139,20 @@ export default function GalleryPage() {
               {activeMemory.description && (
                 <p className="gallery-selected__text">{activeMemory.description}</p>
               )}
+              <button
+                type="button"
+                className={`gallery-sound-pill${trackPlaying ? ' is-playing' : ''}`}
+                onClick={() => void toggle(activeMemory.track)}
+                aria-label={
+                  trackPlaying
+                    ? `Pause ${activeMemory.track.title}`
+                    : `Play ${activeMemory.track.title}`
+                }
+              >
+                <Equalizer playing={trackPlaying} className="gallery-sound-pill__eq" />
+                <span className="gallery-sound-pill__title">{activeMemory.track.title}</span>
+                {trackPlaying ? <FaPause aria-hidden="true" /> : <FaPlay aria-hidden="true" />}
+              </button>
             </div>
           </div>
         </div>
