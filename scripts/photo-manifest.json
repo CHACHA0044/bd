@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T16:53:44.816Z",
+  "generatedAt": "2026-11-03T18:37:55.262Z",
   "manifest": [
     {
       "order": 1,
@@ -54,6 +54,15 @@
       "imageFallback": "/photos/photo-6.jpg",
       "thumbnail": "/photos/thumbs/photo-6.webp",
       "thumbnailFallback": "/photos/thumbs/photo-6.jpg"
+    },
+    {
+      "order": 7,
+      "source": "WhatsApp Image 2026-11-03 at 10.41.39 PM.jpeg",
+      "placeholder": false,
+      "image": "/photos/photo-7.webp",
+      "imageFallback": "/photos/photo-7.jpg",
+      "thumbnail": "/photos/thumbs/photo-7.webp",
+      "thumbnailFallback": "/photos/thumbs/photo-7.jpg"
     }
   ]
 }

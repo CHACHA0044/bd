@@ -63,6 +63,7 @@ export const birthdayConfig = {
     'Some of your favourite animal friends are here to celebrate with you!',
   badge: '3 Years of Magic',
   celebrationLabel: "Let's Celebrate!",
+  celebrationHint: 'Tap the button to launch a birthday blast!',
   celebrationPauseLabel: 'Pause Music',
   footer: 'Made with lots of love for Heer Betu',
 
@@ -70,7 +71,7 @@ export const birthdayConfig = {
   galleryTeaserTitle: 'A Little Collection of Happy Memories',
   galleryTeaserText: "Let's look at some of your sweetest moments!",
   galleryTitle: "Heer Betu's Happy Memories",
-  galleryIntro: 'Six little moments, six little melodies — all wrapped in love.',
+  galleryIntro: 'Seven little moments, seven little melodies — all wrapped in love.',
   galleryHint: 'Swipe, drag or use the arrow keys to wander through the memories.',
 
   /* ── The birthday song ────────────────────────────────────── */
@@ -176,6 +177,22 @@ export const birthdayConfig = {
         id: 'photo-6',
         title: 'Precious Memories Song',
         src: '/audio/photo-6.mp3',
+        kind: 'memory',
+      },
+    },
+    {
+      id: 'memory-7',
+      photo: '/photos/photo-7.webp',
+      photoFallback: '/photos/photo-7.jpg',
+      thumbnail: '/photos/thumbs/photo-7.webp',
+      thumbnailFallback: '/photos/thumbs/photo-7.jpg',
+      alt: 'A sweet memory of Heer Betu radiating happiness and joy',
+      caption: 'Pure Joy',
+      description: 'Filling every moment with laughter and wonder.',
+      track: {
+        id: 'photo-7',
+        title: 'Pure Joy Song',
+        src: '/audio/photo-7.mp3',
         kind: 'memory',
       },
     },

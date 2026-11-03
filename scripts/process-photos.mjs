@@ -19,7 +19,7 @@ const outputDir = path.join(root, 'public', 'photos');
 const thumbDir = path.join(outputDir, 'thumbs');
 const manifestPath = path.join(root, 'scripts', 'photo-manifest.json');
 
-const LIMIT = Number(process.env.PHOTO_LIMIT || 6);
+const LIMIT = Number(process.env.PHOTO_LIMIT || 7);
 const FULL_SIZE = 900;
 const THUMB_SIZE = 360;
 const EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.avif']);

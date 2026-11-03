@@ -1,4 +1,4 @@
-﻿
+
 import { useEffect, useRef } from 'react';
 import './FlyingButton.css';
 
@@ -1626,7 +1626,12 @@ function createEngine({ root, canvas, button, cursor, ramp, props }) {
       endDrag(e);
       return;
     }
+    const hadTouchPress = p.type !== 'mouse' && Boolean(s.press);
     s.press = null;
+    if (hadTouchPress && !s.suppress && s.phase === 'rest') {
+      if (rampOn()) ride();
+      else launch();
+    }
     if (!s.pressed) return;
     s.pressed = false;
     delete button.dataset.pressed;

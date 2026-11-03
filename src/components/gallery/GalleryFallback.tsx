@@ -10,7 +10,7 @@ export default function GalleryFallback() {
     <div className="gallery-fallback">
       <p className="gallery-fallback__notice">
         <FaCircleInfo aria-hidden="true" />
-        Your browser is showing our simpler photo view. All six memories and their little songs are
+        Your browser is showing our simpler photo view. All seven memories and their little songs are
         still here to enjoy.
       </p>
 

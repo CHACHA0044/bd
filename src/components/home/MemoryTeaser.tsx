@@ -1,9 +1,9 @@
 import { FaChevronRight, FaImages } from 'react-icons/fa6';
 import { birthdayConfig } from '../../config/birthday';
 
-const teaserMemories = birthdayConfig.memories.filter((_, index) => index % 2 === 0).slice(0, 3);
-
 export default function MemoryTeaser() {
+  const memories = birthdayConfig.memories;
+
   return (
     <section className="section teaser" aria-labelledby="teaser-title">
       <div className="teaser__copy">
@@ -16,9 +16,13 @@ export default function MemoryTeaser() {
         </h2>
         <p className="teaser__text">{birthdayConfig.galleryTeaserText}</p>
         <div className="teaser__actions">
-          <a href="#/memories" className="btn btn--primary">
+          <a
+            href="#/memories"
+            className="teaser__gallery-btn"
+            aria-label="Open the memory gallery"
+          >
             <FaImages aria-hidden="true" />
-            Visit the memory gallery
+            <span>Gallery</span>
             <FaChevronRight aria-hidden="true" />
           </a>
         </div>
@@ -26,7 +30,7 @@ export default function MemoryTeaser() {
 
       <div className="teaser__gallery">
         <div className="teaser__grid">
-          {teaserMemories.map((memory) => (
+          {memories.map((memory) => (
             <a
               className="teaser__photo"
               href="#/memories"
@@ -47,11 +51,6 @@ export default function MemoryTeaser() {
             </a>
           ))}
         </div>
-        <span className="teaser__sticker" aria-hidden="true">
-          Six sweet
-          <br />
-          memories
-        </span>
       </div>
     </section>
   );

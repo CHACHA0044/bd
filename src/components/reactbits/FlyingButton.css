@@ -1,4 +1,4 @@
-﻿.flying-button {
+.flying-button {
   --fly-bg: #27272a;
   --fly-ink: #f5f5f5;
   --fly-pod: #18181b;
@@ -87,7 +87,7 @@
   user-select: none;
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
-  touch-action: none;
+  touch-action: manipulation;
   transform-origin: 50% 50%;
   will-change: transform;
   visibility: hidden;
