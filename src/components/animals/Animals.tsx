@@ -65,38 +65,107 @@ export function Bunny({ className }: { className?: string }) {
   );
 }
 
-export function Bear({ className }: { className?: string }) {
+export function Cat({ className }: { className?: string }) {
   return (
-    <AnimalSvg className={className} viewBox="0 0 120 130">
-      <circle cx="31" cy="33" r="14" fill="#D2A27E" />
-      <circle cx="31" cy="33" r="8" fill="#EFC9AD" />
-      <circle cx="89" cy="33" r="14" fill="#D2A27E" />
-      <circle cx="89" cy="33" r="8" fill="#EFC9AD" />
-      <g transform="rotate(16 60 30)">
-        <path d="M60 2 47 36 73 36Z" fill="#FF927E" />
-        <path d="M52 25q8 5 16 0" stroke="#FFF8EB" strokeWidth="4" fill="none" strokeLinecap="round" />
-        <circle cx="60" cy="2" r="5" fill="#FFE69A" />
-      </g>
-      <ellipse cx="60" cy="100" rx="34" ry="25" fill="#D2A27E" />
-      <ellipse cx="60" cy="102" rx="20" ry="15" fill="#E7BE9E" />
-      <ellipse cx="43" cy="111" rx="9" ry="6" fill="#C08E6C" />
-      <ellipse cx="77" cy="111" rx="9" ry="6" fill="#C08E6C" />
-      <circle cx="60" cy="64" r="37" fill="#D2A27E" />
-      <ellipse cx="60" cy="75" rx="19" ry="14" fill="#F6E3CE" />
-      <ellipse cx="47" cy="61" rx="3.5" ry="4.5" fill={EYE} />
-      <ellipse cx="73" cy="61" rx="3.5" ry="4.5" fill={EYE} />
-      <circle cx="48.2" cy="59.4" r="1.2" fill="#fff" />
-      <circle cx="74.2" cy="59.4" r="1.2" fill="#fff" />
-      <ellipse cx="36" cy="72" rx="7" ry="4.3" fill="#E79A8C" opacity=".65" />
-      <ellipse cx="84" cy="72" rx="7" ry="4.3" fill="#E79A8C" opacity=".65" />
-      <ellipse cx="60" cy="70.5" rx="5" ry="3.6" fill="#5B403A" />
+    <AnimalSvg className={className} viewBox="0 0 120 132">
       <path
-        d="M60 74v3M60 77q-4.5 4-8 0M60 77q4.5 4 8 0"
+        d="M93 107c16-1 18-24 5-31"
+        stroke="#D8BCA6"
+        strokeWidth="12"
+        strokeLinecap="round"
+        fill="none"
+      />
+      <ellipse cx="60" cy="103" rx="32" ry="24" fill="#E9D2BD" />
+      <ellipse cx="60" cy="105" rx="17" ry="14" fill="#FBF1E7" />
+      <ellipse cx="44" cy="113" rx="9" ry="6" fill="#D8BCA6" />
+      <ellipse cx="76" cy="113" rx="9" ry="6" fill="#D8BCA6" />
+      <path d="M31 43 25 8l29 21z" fill="#E9D2BD" />
+      <path d="M89 43 95 8 66 29z" fill="#E9D2BD" />
+      <path d="M33 36 31 19 46 30z" fill="#F7C9D4" />
+      <path d="M87 36 89 19 74 30z" fill="#F7C9D4" />
+      <circle cx="60" cy="62" r="35" fill="#E9D2BD" />
+      <path
+        d="M60 28v14M50 30l3 12M70 30l-3 12"
+        stroke="#D8BCA6"
+        strokeWidth="4.5"
+        strokeLinecap="round"
+        opacity=".65"
+      />
+      <ellipse cx="47" cy="60" rx="3.6" ry="4.6" fill={EYE} />
+      <ellipse cx="73" cy="60" rx="3.6" ry="4.6" fill={EYE} />
+      <circle cx="48.2" cy="58.4" r="1.2" fill="#fff" />
+      <circle cx="74.2" cy="58.4" r="1.2" fill="#fff" />
+      <ellipse cx="37" cy="70" rx="6.5" ry="4" fill={BLUSH} opacity=".7" />
+      <ellipse cx="83" cy="70" rx="6.5" ry="4" fill={BLUSH} opacity=".7" />
+      <path d="M57 69q3-2.5 6 0-1 3.5-3 4.5-2-1-3-4.5z" fill="#E796A6" />
+      <path
+        d="M60 74v2.5M60 76.5q-4 3.5-6.5 0M60 76.5q4 3.5 6.5 0"
+        stroke={EYE}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        fill="none"
+      />
+      <path
+        d="M39 70H28M39 75l-10 4M81 70h11M81 75l10 4"
+        stroke="#C9AE99"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        opacity=".8"
+      />
+      <g transform="translate(85 31)">
+        <circle cx="0" cy="-6" r="4" fill="#FFFDF8" />
+        <circle cx="6" cy="-1" r="4" fill="#FFFDF8" />
+        <circle cx="3" cy="6" r="4" fill="#FFFDF8" />
+        <circle cx="-4" cy="6" r="4" fill="#FFFDF8" />
+        <circle cx="-6" cy="-1" r="4" fill="#FFFDF8" />
+        <circle cx="0" cy="0" r="3.2" fill="#FFE69A" />
+      </g>
+    </AnimalSvg>
+  );
+}
+
+export function Dog({ className }: { className?: string }) {
+  return (
+    <AnimalSvg className={className} viewBox="0 0 120 132">
+      <path
+        d="M91 105c18-2 18-25 3-30"
+        stroke="#C58B62"
+        strokeWidth="12"
+        strokeLinecap="round"
+        fill="none"
+      />
+      <ellipse cx="60" cy="102" rx="34" ry="24" fill="#DCA97A" />
+      <ellipse cx="60" cy="104" rx="18" ry="14" fill="#F6E3CE" />
+      <ellipse cx="43" cy="112" rx="9" ry="6" fill="#C58B62" />
+      <ellipse cx="77" cy="112" rx="9" ry="6" fill="#C58B62" />
+      <ellipse cx="28" cy="60" rx="13" ry="25" fill="#C58B62" transform="rotate(-18 28 60)" />
+      <ellipse cx="92" cy="60" rx="13" ry="25" fill="#C58B62" transform="rotate(18 92 60)" />
+      <circle cx="60" cy="63" r="35" fill="#DCA97A" />
+      <ellipse cx="49" cy="46" rx="10" ry="8" fill="#C58B62" opacity=".55" />
+      <ellipse cx="60" cy="78" rx="21" ry="14" fill="#F6E3CE" />
+      <ellipse cx="47" cy="59" rx="3.6" ry="4.6" fill={EYE} />
+      <ellipse cx="73" cy="59" rx="3.6" ry="4.6" fill={EYE} />
+      <circle cx="48.2" cy="57.4" r="1.2" fill="#fff" />
+      <circle cx="74.2" cy="57.4" r="1.2" fill="#fff" />
+      <ellipse cx="36" cy="71" rx="7" ry="4.3" fill="#E79A8C" opacity=".65" />
+      <ellipse cx="84" cy="71" rx="7" ry="4.3" fill="#E79A8C" opacity=".65" />
+      <ellipse cx="60" cy="72" rx="5.2" ry="3.8" fill="#5B403A" />
+      <path
+        d="M60 76v3M60 79q-4.5 3.5-8 0M60 79q4.5 3.5 8 0"
         stroke={EYE}
         strokeWidth="1.6"
         strokeLinecap="round"
         fill="none"
       />
+      <path d="M56 85q4 7 8 0" fill="#F08E93" />
+      <g transform="translate(25 31)">
+        <circle cx="0" cy="-6" r="4" fill="#FFFDF8" />
+        <circle cx="6" cy="-1" r="4" fill="#FFFDF8" />
+        <circle cx="3" cy="6" r="4" fill="#FFFDF8" />
+        <circle cx="-4" cy="6" r="4" fill="#FFFDF8" />
+        <circle cx="-6" cy="-1" r="4" fill="#FFFDF8" />
+        <circle cx="0" cy="0" r="3.2" fill="#FFE69A" />
+      </g>
     </AnimalSvg>
   );
 }

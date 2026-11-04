@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { FaArrowsLeftRight, FaImages, FaPause, FaPlay } from 'react-icons/fa6';
+import { FaImages, FaPause, FaPlay } from 'react-icons/fa6';
 import GalleryFallback from '../components/gallery/GalleryFallback';
 import CircularGallery from '../components/reactbits/CircularGallery';
 import Equalizer from '../components/ui/Equalizer';
@@ -66,10 +66,7 @@ export default function GalleryPage() {
         </span>
         <h1 className="gallery-hero__title">{birthdayConfig.galleryTitle}</h1>
         <p className="gallery-hero__text">{birthdayConfig.galleryIntro}</p>
-        <span className="gallery-hint">
-          <FaArrowsLeftRight aria-hidden="true" />
-          {birthdayConfig.galleryHint}
-        </span>
+
       </header>
 
       {webgl === null && (

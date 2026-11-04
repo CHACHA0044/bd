@@ -62,7 +62,7 @@ export const birthdayConfig = {
   message:
     'Three years of smiles, giggles, cuddles and endless magic. Keep shining, our little princess!',
   subtitle:
-    'Some of your favourite animal friends are here to celebrate with you!',
+    'Tap your animal friends to hear their sounds, and tap the balloons to make them pop!',
   badge: '3 Years of Magic',
   celebrationLabel: "Let's Celebrate!",
   celebrationHint: 'Tap the button to launch a birthday blast!',

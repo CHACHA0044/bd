@@ -79,12 +79,21 @@ async function main() {
     const source = chosen[index] ?? null;
     let square;
 
+    // Per-photo crop position overrides (1-indexed).
+    // 'top'  = show more of the top of the image (preserve heads).
+    // default = sharp.strategy.attention (AI-based saliency).
+    const CROP_OVERRIDES = {
+      4: 'top',   // "Our Little Star" — preserve the child's head
+      7: 'top',   // "Pure Joy" — show more of the top (move crop up)
+    };
+
     if (source) {
+      const cropPosition = CROP_OVERRIDES[number] ?? sharp.strategy.attention;
       square = await sharp(source)
         .rotate()
         .resize(FULL_SIZE, FULL_SIZE, {
           fit: 'cover',
-          position: sharp.strategy.attention,
+          position: cropPosition,
           withoutEnlargement: false,
         })
         .toBuffer();

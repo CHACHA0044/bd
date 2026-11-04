@@ -7,6 +7,7 @@ import { prefersSaveData, useWebGLSupport } from '../../hooks/useWebGLSupport';
 interface CelebrationButtonProps {
   label: string;
   hint?: string;
+  isPlaying?: boolean;
   onCelebrate: (event?: MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -22,6 +23,7 @@ function ButtonFace({ label }: { label: string }) {
 export default function CelebrationButton({
   label,
   hint,
+  isPlaying = false,
   onCelebrate,
 }: CelebrationButtonProps) {
   const reduceMotion = useReducedMotion();
@@ -67,12 +69,12 @@ export default function CelebrationButton({
             smoke={0.8}
             turbulence={0.7}
             wobble={0.55}
-            buttonColor="#DE5C46"
+            buttonColor={isPlaying ? '#8B6FD6' : '#DE5C46'}
             textColor="#FFF8EB"
             thrustColor="#FFE69A"
             smokeColor="#FFF3DE"
             ramp={false}
-            className="celebration__flyer"
+            className={`celebration__flyer${isPlaying ? ' is-playing' : ''}`}
             onClick={onCelebrate}
           >
             <ButtonFace label={label} />
@@ -81,7 +83,7 @@ export default function CelebrationButton({
           <div className="celebration__fallback">
             <button
               type="button"
-              className="celebration__fallback-button"
+              className={`celebration__fallback-button${isPlaying ? ' is-playing' : ''}`}
               onClick={handleFallbackClick}
             >
               <ButtonFace label={label} />

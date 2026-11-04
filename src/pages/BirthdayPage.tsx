@@ -12,7 +12,7 @@ export default function BirthdayPage() {
   const confettiRef = useRef<ConfettiHandle>(null);
   const timerRef = useRef<number | undefined>(undefined);
   const { activeTrackId, isPlaying } = useAudioState();
-  const { play, stop } = useAudioActions();
+  const { play, pause, stop } = useAudioActions();
 
   const birthdayPlaying =
     activeTrackId === birthdayConfig.birthdaySong.id && isPlaying;
@@ -34,11 +34,16 @@ export default function BirthdayPage() {
   }, [stop]);
 
   const handleCelebrate = (event?: MouseEvent<HTMLButtonElement>) => {
-    if (!birthdayPlaying) {
-      void play(birthdayConfig.birthdaySong);
-    }
-    setCelebrating(true);
     window.clearTimeout(timerRef.current);
+
+    if (birthdayPlaying) {
+      pause();
+      setCelebrating(false);
+      return;
+    }
+
+    void play(birthdayConfig.birthdaySong);
+    setCelebrating(true);
     timerRef.current = window.setTimeout(() => setCelebrating(false), 4200);
 
     const clientX = event?.clientX ?? 0;
@@ -93,8 +98,13 @@ export default function BirthdayPage() {
         </div>
 
         <CelebrationButton
-          label={birthdayConfig.celebrationLabel}
-          hint={birthdayConfig.celebrationHint}
+          label={birthdayPlaying ? 'Pause Music' : birthdayConfig.celebrationLabel}
+          hint={
+            birthdayPlaying
+              ? 'Tap once more to pause the birthday song.'
+              : birthdayConfig.celebrationHint
+          }
+          isPlaying={birthdayPlaying}
           onCelebrate={handleCelebrate}
         />
       </section>
